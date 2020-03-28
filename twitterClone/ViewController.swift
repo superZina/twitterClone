@@ -9,10 +9,10 @@
 import UIKit
 
 struct Tweet{
-    var Id: String
-    var content: String
-    var profile: String
-    init(Id: String, content: String, profile: String){
+    var Id: String?
+    var content: String?
+    var profile: UIImage?
+    init(Id: String, content: String, profile: UIImage?){
         self.Id = Id
         self.content = content
         self.profile = profile
@@ -23,13 +23,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TweetTable: UITableView!
     let tweetList: [Tweet] = [
-        Tweet(Id: "a", content: "aaa", profile: "A"),
-        Tweet(Id: "b", content: "bbb", profile: "B"),
-        Tweet(Id: "c", content: "ccc", profile: "C"),
-        Tweet(Id: "d", content: "ddd", profile: "D"),
-        Tweet(Id: "e", content: "eee", profile: "E"),
-        Tweet(Id: "f", content: "fff", profile: "F"),
-        Tweet(Id: "g", content: "ggg", profile: "G")
+        Tweet(Id: "a", content: "aaa", profile: UIImage(named: "농담곰")),
+        Tweet(Id: "b", content: "bbb", profile: UIImage(named: "무민")),
+        Tweet(Id: "c", content: "ccc", profile: UIImage(named: "커비")),
+        Tweet(Id: "d", content: "ddd", profile: UIImage(named: "스누피")),
+        Tweet(Id: "e", content: "eee", profile: UIImage(named: "")),
+        Tweet(Id: "f", content: "fff", profile: UIImage(named: "")),
+        Tweet(Id: "g", content: "ggg", profile: UIImage(named: ""))
     
     ]
     override func viewDidLoad() {
@@ -58,11 +58,11 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as? TweetCell else { return UITableViewCell() }
         //identifier가 "TweetCell"이란 cell을 재사용, cell에서 등록한 id,content,profile을 현재 tableViewlist에 있는것들을 각각 연결시켜줘야 함
+        cell.Id.layer.borderWidth = 50
         cell.Id.text = self.tweetList[indexPath.row].Id
         cell.content.text = self.tweetList[indexPath.row].content
-        cell.profile.text = self.tweetList[indexPath.row].profile
-        
-        
+        cell.profile.image = self.tweetList[indexPath.row].profile
+        cell.Id.font = .boldSystemFont(ofSize: 16)
         return cell
     }
     

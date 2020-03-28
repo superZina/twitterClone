@@ -10,7 +10,7 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
-    @IBOutlet weak var profile: UILabel!
+    @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var Id: UILabel!
     @IBOutlet weak var content: UILabel!
     @IBOutlet weak var mention: UIButton!
