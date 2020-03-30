@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  twitterClone
 //
-//  Created by 이진하 on 2020/03/25.
+//  Created by 이진하 on 2020/03/29.
 //  Copyright © 2020 이진하. All rights reserved.
 //
 
@@ -10,13 +10,10 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
-    @IBOutlet weak var profile: UIImageView!
+
     @IBOutlet weak var Id: UILabel!
+    @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var content: UILabel!
-    @IBOutlet weak var mention: UIButton!
-    @IBOutlet weak var retweet: UIButton!
-    @IBOutlet weak var like: UIButton!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
