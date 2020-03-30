@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" id="KGk-i7-Jjw" customClass="TweetCell" customModule="twitterClone" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -35,16 +35,36 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6G-M0-RWI">
+                        <rect key="frame" x="75" y="80" width="56" height="30"/>
+                        <state key="normal" title="mention"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zSk-2x-XTh">
+                        <rect key="frame" x="161" y="80" width="52" height="30"/>
+                        <state key="normal" title="retweet"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKM-OV-EQt">
+                        <rect key="frame" x="243" y="80" width="30" height="30"/>
+                        <state key="normal" title="like"/>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="RKM-OV-EQt" firstAttribute="leading" secondItem="zSk-2x-XTh" secondAttribute="trailing" constant="30" id="30m-KL-OIs"/>
+                    <constraint firstItem="B6G-M0-RWI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gJv-9p-lXb" secondAttribute="bottom" constant="15" id="6io-De-j3J"/>
+                    <constraint firstItem="B6G-M0-RWI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Ecc-pS-seh"/>
                     <constraint firstItem="edU-7M-BSI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KRV-w4-kKP"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sV0-Fy-mhR" secondAttribute="bottom" constant="8" id="OPz-3l-zxf"/>
                     <constraint firstItem="sV0-Fy-mhR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="VFP-Jc-Ehk"/>
                     <constraint firstAttribute="trailing" secondItem="edU-7M-BSI" secondAttribute="trailing" constant="202" id="XHv-GN-A4c"/>
                     <constraint firstItem="sV0-Fy-mhR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bdd-VF-T7G"/>
+                    <constraint firstItem="RKM-OV-EQt" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="eiy-lk-Rij"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="gJv-9p-lXb" secondAttribute="bottom" constant="8" id="ft7-E2-BqC"/>
                     <constraint firstItem="gJv-9p-lXb" firstAttribute="leading" secondItem="sV0-Fy-mhR" secondAttribute="trailing" constant="8" id="mwR-Gm-c5l"/>
                     <constraint firstItem="edU-7M-BSI" firstAttribute="leading" secondItem="sV0-Fy-mhR" secondAttribute="trailing" constant="8" id="n25-gy-qXl"/>
-                    <constraint firstAttribute="bottom" secondItem="sV0-Fy-mhR" secondAttribute="bottom" constant="41" id="pNs-y6-hUJ"/>
+                    <constraint firstItem="zSk-2x-XTh" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="p0Q-cC-VCz"/>
                     <constraint firstItem="gJv-9p-lXb" firstAttribute="top" secondItem="edU-7M-BSI" secondAttribute="bottom" constant="8" id="qOC-no-p61"/>
+                    <constraint firstItem="zSk-2x-XTh" firstAttribute="leading" secondItem="B6G-M0-RWI" secondAttribute="trailing" constant="30" id="qrg-jf-7yc"/>
+                    <constraint firstItem="B6G-M0-RWI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="60" id="vFc-yQ-gbq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="UU1-Gw-KXf"/>

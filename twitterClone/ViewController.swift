@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         self.TweetTable.dataSource = self
         //위임
         self.TweetTable.rowHeight = UITableView.automaticDimension
-        self.TweetTable.estimatedRowHeight = 180.0
+        self.TweetTable.estimatedRowHeight = 660.0
     }
     
 
