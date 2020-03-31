@@ -9,39 +9,51 @@
 import UIKit
 
 struct Tweet{
-    var Id: String?
-    var content: String?
+    var Id: String!
+    var content: String!
     var profile: UIImage?
-    init(Id: String, content: String, profile: UIImage?){
+    var test: Int!
+    
+    init(Id: String!, content: String!, profile: UIImage?, test: Int!){
         self.Id = Id
         self.content = content
         self.profile = profile
+        self.test = test
     }
 }
 
 class ViewController: UIViewController {
+    
+//
+//      Swift thread ==> DispatchQueue
+//
 
     private var refreshControl = UIRefreshControl()
+    
+    var test: Int! = 0
+    var test2: Int = 0
+    
     
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var TweetTable: UITableView!
     var tweetList: [Tweet] = [
-        Tweet(Id: "농담곰", content: "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ", profile: UIImage(named: "농담곰")),
-        Tweet(Id: "무민", content: "안녕하세요 무민 입니다", profile: UIImage(named: "무민")),
-        Tweet(Id: "커비", content: "안녕하세요 커비 입니다", profile: UIImage(named: "커비")),
-        Tweet(Id: "스누피", content: "ddd", profile: UIImage(named: "스누피")),
-        Tweet(Id: "스펀지밥", content: "eee", profile: UIImage(named: "스펀지밥")),
-        Tweet(Id: "뚱이", content: "ㅎㅎㅎㅎ", profile: UIImage(named: "뚱이")),
-        Tweet(Id: "하리보", content: "ggg", profile: UIImage(named: "하리보"))
+        Tweet(Id: "농담곰", content: "ㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁㅁ", profile: UIImage(named: "농담곰"), test: nil)
+//        Tweet(Id: "무민", content: "안녕하세요 무민 입니다", profile: UIImage(named: "무민")),
+//        Tweet(Id: "커비", content: "안녕하세요 커비 입니다", profile: UIImage(named: "커비")),
+//        Tweet(Id: "스누피", content: "ddd", profile: UIImage(named: "스누피")),
+//        Tweet(Id: "스펀지밥", content: "eee", profile: UIImage(named: "스펀지밥")),
+//        Tweet(Id: "뚱이", content: "ㅎㅎㅎㅎ", profile: UIImage(named: "뚱이")),
+//        Tweet(Id: "하리보", content: "ggg", profile: UIImage(named: "하리보"))
     
     ]
     
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         let TweetCellNib = UINib(nibName: "TweetCell", bundle: nil)
         self.TweetTable.register(TweetCellNib, forCellReuseIdentifier: "TweetCell")
         //nib 등록
@@ -50,7 +62,6 @@ class ViewController: UIViewController {
         //위임
         self.TweetTable.rowHeight = UITableView.automaticDimension
         self.TweetTable.estimatedRowHeight = 660.0
-        self.TweetTable.isEditing = true
 
     }
 
@@ -62,7 +73,7 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
     //왼쪽으로 스와이프할 때 액션
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-          self.tweetList.remove(at: indexPath.row)
+            self.tweetList.remove(at: self.tweetList[indexPath.row].test)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
    }
@@ -89,6 +100,12 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         return false
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    
+    
     //cell개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tweetList.count
@@ -105,6 +122,5 @@ extension ViewController: UITableViewDelegate,UITableViewDataSource {
         cell.Id.font = .boldSystemFont(ofSize: 16)
         return cell
     }
-
     
 }
