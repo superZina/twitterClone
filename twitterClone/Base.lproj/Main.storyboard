@@ -22,7 +22,10 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7E-nG-yf5">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="0Mb-MT-C5E"/>
+                                    <navigationItem title="Title" id="0Mb-MT-C5E">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="fMG-CD-xmz"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="pencil" catalog="system" id="y8K-f6-G9P"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -40,6 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="TweetTable" destination="FmU-BZ-wZ7" id="Uvb-ak-wT2"/>
+                        <outlet property="deleteButton" destination="fMG-CD-xmz" id="neD-im-ckk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -47,4 +51,7 @@
             <point key="canvasLocation" x="1" y="27"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
