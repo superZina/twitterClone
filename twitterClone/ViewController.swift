@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
         let TweetCellNib = UINib(nibName: "TweetCell", bundle: nil)
         self.TweetTable.register(TweetCellNib, forCellReuseIdentifier: "TweetCell")
         //nib 등록
